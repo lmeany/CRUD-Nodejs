@@ -6,7 +6,13 @@ const session = require('express-session')
 const app = express();
 const PORT =5000;
 
-app.use(session({secret:"fingerpint",resave: true, saveUninitialized: true}))
+// This tells your express app to use the session middleware.
+app.use(session({secret:"fingerpint",resave: true, saveUninitialized: true}))// This tells your express app to use the session middleware
+// secret - a random unique string key used to authenticate a session
+// resave -  take a boolean key. it enables the session to be stored back to the session store,
+// even if the session was never modified during request
+// saveUninitialized - this allows any uninitialized session to be sent to the store. When a session is create but not modified,
+// is is referred to as uninitilized.
 
 app.use(express.json());
 
